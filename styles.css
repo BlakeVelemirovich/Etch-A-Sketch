@@ -1,4 +1,30 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	position: absolute;
+	top: 0px;
+}
+
+.gridContainer {
+	display: inline-grid;
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
+	height: 500px;
+	width: 500px;
+}
+
 .gridPixel {
-	border: 1px solid;
+	border: 2px solid;
 	border-color: black;
+	padding: 15px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
 }
