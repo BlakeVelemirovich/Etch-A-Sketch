@@ -1,9 +1,10 @@
+function gridColour(gridPixelColour) {
+	gridPixelColour.style.backgroundColor = 'black';
+}
+
+// Creating the div grid
 const gridContainer = document.querySelector('.gridContainer');
 let sixteenBySixteen = 256;
-
-function gridColour {
-
-}
 
 for (let i = 0; i < sixteenBySixteen ; i++){
 	const gridPixel = document.createElement('div');
@@ -11,6 +12,13 @@ for (let i = 0; i < sixteenBySixteen ; i++){
 	gridContainer.appendChild(gridPixel);
 }
 
-gridPixel.addEventListener('mouseenter', function() {
-	gridColour;
+//Colouring the div grid whenever mouse enters selected div
+let pixel;
+
+gridContainer.addEventListener('mouseover', function (e) {
+	pixel = e.target;
+	
+	if (pixel.matches('.gridPixel')) {
+		gridColour(pixel);
+	}
 });
