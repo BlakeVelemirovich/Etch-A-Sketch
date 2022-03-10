@@ -4,9 +4,18 @@ function gridColour(gridPixelColour) {
 
 // Creating the div grid
 const gridContainer = document.querySelector('.gridContainer');
-let sixteenBySixteen = 256;
+let gridSize;
 
-for (let i = 0; i < sixteenBySixteen; i++){
+const btnGridSize = document.querySelectorAll('button');
+btnGridSize.forEach(button => {
+	button.addEventListener('click', function() {
+		gridSize = button.value;
+		gridContainer.style.cssText = `grid-template-columns: repeat(${gridSize}, 2fr);
+									   grid-template-rows: repeat(${gridSize}, 2fr)`;
+	});
+});
+
+for (let i = 0; i < gridSize; i++){
 	const gridPixel = document.createElement('div');
 	gridPixel.classList.add('gridPixel');
 	gridContainer.appendChild(gridPixel);
