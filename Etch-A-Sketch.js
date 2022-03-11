@@ -9,17 +9,19 @@ let gridSize;
 const btnGridSize = document.querySelectorAll('button');
 btnGridSize.forEach(button => {
 	button.addEventListener('click', function() {
-		gridSize = button.value;
-		gridContainer.style.cssText = `grid-template-columns: repeat(${gridSize}, 2fr);
-									   grid-template-rows: repeat(${gridSize}, 2fr)`;
+		// Creates the grid container
+		gridSize = parseInt(button.value);
+		gridContainer.style.cssText = `grid-template-columns: repeat(${gridSize}, 1fr);`;
+		gridContainer.style.cssText = `grid-template-rows: repeat(${gridSize}, 1fr);`;
+		
+		// Generates the grid by creating all the nessecary divs
+		for (let i = 0; i < gridSize; i++){
+			const gridPixel = document.createElement('div');
+			gridPixel.classList.add('gridPixel');
+			gridContainer.appendChild(gridPixel);
+		}
 	});
 });
-
-for (let i = 0; i < gridSize; i++){
-	const gridPixel = document.createElement('div');
-	gridPixel.classList.add('gridPixel');
-	gridContainer.appendChild(gridPixel);
-}
 
 //Colouring the div grid whenever mouse enters selected div
 let pixel;
